@@ -48,6 +48,30 @@
         return $vans;        
     }
 
+    function getTools($ID, $db_conn){
+        $tools = array();
+        $sql = "";
+        if ($ID == null){
+            $sql = "SELECT * FROM t_attrezzi";
+        }else{
+            $sql = "SELECT * FROM t_attrezzi WHERE (ID='$ID')";
+        }
+        $ris = mysqli_query($db_conn, $sql);
+        if ($ris == false){
+            die("error");
+        }
+        $i=0;
+        while($ris = mysqli_fetch_array ($ris, MYSQLI_ASSOC)){
+            if ($ID == null){
+                $tools["$i"] = array($ris['ID'], $ris['Attrezzo']);
+                $i++;
+            }else{
+                $tools[0] = array($ris['ID'], $ris['Attrezzo']);
+            }
+        }
+        return $tools;        
+    }
+
     function checkAdminPassword($id, $password, $db_conn){
         $selectQuery = "SELECT * FROM t_amministratori WHERE ID='$id' AND Password='$password'";
         $select = mysqli_query($db_conn, $selectQuery);
