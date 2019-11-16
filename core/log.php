@@ -21,14 +21,13 @@
   $user = $_SESSION['user'];
   if (isset($user)){
     if ($user == "admin"){
-
+      redirect("../dashboard.php");
     }else if ($user == "vans"){
-
+      redirect("../desktop.php");
     }else{
       redirect("logout.php");
     }
   }else{
     redirect("logout.php");
   }
-  redirect("../dashboard.php");
 ?>

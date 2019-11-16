@@ -25,6 +25,8 @@
                     echo "Error Empty tools";
                     return "Empty tools";
                 }
+                $timestamp = date("Y-m-d H:i:s", $timestamp);
+                echo $timestamp;
                 $idFurgone = intval($idFurgone);
                 $idAttrezzo = intval($idAttrezzo);
                 $evento = addEvento($latitudine, $longitudine, $timestamp, $idFurgone, $idAttrezzo, $db_conn);

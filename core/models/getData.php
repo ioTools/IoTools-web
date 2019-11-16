@@ -93,6 +93,30 @@
         }
         return $tools;        
     }
+    
+    function getEvento($ID, $db_conn){
+        $evento = array();
+        $sql = "";
+        if ($ID == null){
+            $sql = "SELECT * FROM t_evento ORDER BY Tempo";
+        }else{
+            $sql = "SELECT * FROM t_evento WHERE (ID='$ID')";
+        }
+        $ris = mysqli_query($db_conn, $sql);
+        if ($ris == false){
+            die("error");
+        }
+        $i=0;
+        while($risultato = mysqli_fetch_array ($ris, MYSQLI_ASSOC)){
+            if ($ID == null){
+                $evento["$i"] = array($risultato['ID'], $risultato['FK_Attrezzo'], $risultato['Tempo'], $risultato['FK_Furgone'], $risultato['Latitudine'], $risultato['Longitudine']);
+                $i++;
+            }else{
+                $evento[0] = array($risultato['ID'], $risultato['FK_Attrezzo'], $risultato['Tempo'], $risultato['FK_Furgone'], $risultato['Latitudine'], $risultato['Longitudine']);
+            }
+        }
+        return $evento;        
+    }
     function getSquad($ID, $db_conn){
         $squads = array();
         $sql = "";
