@@ -25,6 +25,8 @@
             }else{
               redirect('index.php');
             }
+          }else{
+            $loginScreen = "core/views/_loginAdmin.php";
           }
         }
         if ($loginScreen == null){

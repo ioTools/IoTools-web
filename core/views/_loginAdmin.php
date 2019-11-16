@@ -20,10 +20,9 @@
                 }
            
                 $admins = getAdmins(null, $db_conn);
-                print_r($admins);
-                /*for ($i=0; $i < count($admins); $i++){
+                for ($i=0; $i < count($admins); $i++){
                     echo "<option value='".$admins[$i][0]."'>".$admins[$i][3]."</option>";
-                }*/
+                }
                 ?>
             </select>
             <label class="mdl-textfield__label" for="admin">Administrators</label>
@@ -33,6 +32,7 @@
             <input class="mdl-textfield__input" type="password" id="password" name="password" required="">
             <label class="mdl-textfield__label" for="password">Password</label>
             </div>
+            <p>Vuoi accedere come lavoratore? <a href="login.php?user=van" style="cursor:pointer">Clicca qui</a></p>
             <div>
             <button class="style-button-red" type="submit">ENTRA</button><br>
             <button class="style-button-white" onclick="location.href='index.php'" type="reset">INDIETRO</button>
@@ -48,3 +48,35 @@
         </div>
     </div>
 </section>
+
+<?php
+  if(isset($_POST['password'])){
+    // text_filter dell'input
+    $id = text_filter($_POST["admin"]);
+    if ($id == 'empty'){
+      echo "
+      <script>
+      flatAlert('Seleziona l\'account', '', 'error', 'login.php?user=admin');
+      </script>";
+      return;
+    }
+    // md5 della password
+    $password = text_filter_encrypt($_POST["password"]);
+    // controlla la password
+    $admin = checkAdminPassword($id, $password, $db_conn);
+    if ($admin == false){
+      echo "
+      <script>
+      flatAlert('Password errata', '', 'error', 'login.php?user=admin');
+      </script>";
+    }else{
+      $_SESSION['ID'] = $caserma[0][3];
+      $_SESSION['Email'] = $caserma[0][3];
+      echo "
+      <script>
+      flatAlert('Accesso eseguito con successo', '', 'success', 'core/log.php');
+      </script>";
+    }
+  }
+
+ ?>
