@@ -53,3 +53,30 @@ function flatAlert(titolo, testo, icona, url, button=false){
     });
   } 
 }
+
+function alertDeleteAttrezzatura(id){
+  swal(
+    {
+      title: "Vuoi continuare?",
+      text: "L'attrezzatura selezionata verrà eliminata",
+      icon: "error",
+      buttons: {
+        cancel: {
+          text: "Annulla",
+          visible: true,
+        },
+        button: {
+          text: "Continua",
+          visible: true,
+        }
+      }
+    }
+  ).then(Elimina => {
+    if (Elimina){
+      swal.close();
+      location.href='core/models/deleteData.php?data=attrezzatura&id='+id;
+    }else{
+      swal.close();
+    }
+  });
+}

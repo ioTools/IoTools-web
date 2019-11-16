@@ -40,7 +40,9 @@
     background:#e74c3c!important;
     color:white!important;
   }
-
+  .style-text-red{
+    color:#e74c3c!important;
+  }
   .style-button-red{
     background-color: #e74c3c;
     border:1px solid #e74c3c;

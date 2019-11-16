@@ -50,7 +50,7 @@ CREATE TABLE t_evento (
   ID 		         BIGINT				NOT NULL 	AUTO_INCREMENT,
   Latitudine         VARCHAR(150),
   Longitudine        VARCHAR(150),
-  Tempo              DATETIME, 
+  Tempo              TIMESTAMP, 
   FK_Furgone          BIGINT,
   FK_Attrezzo          BIGINT,
 

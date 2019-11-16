@@ -1,7 +1,8 @@
 <?php
-    include "core/dbConnection.php";
-    include "core/functions.php";
-    include "core/models/getData.php";
+    include "../core/dbConnection.php";
+    include "../core/functions.php";
+    include "../core/models/getData.php";
+    include "../core/models/addData.php";
     //http://www.iotools.altervista.com/api/getRfidData.php?idFurgone=1&ecc...
     try{
         $idFurgone = $_GET['idFurgone'];
@@ -16,14 +17,18 @@
             isset($longitudine)){
                 $vans = getVans($idFurgone, $db_conn);
                 $tools = getTools($idAttrezzo, $db_conn);
-                if (empty($vans) or empty($tools)){
+                if (empty($vans) or empty($idAttrezzo)){
                     return;
                 }
-                $evento = addEvento($lat, $long, $timestamp, $FK_Furgone, $FK_Attrezzo, $db_conn);
+                $idFurgone = intval($idFurgone);
+                $idAttrezzo = intval($idAttrezzo);
+                $evento = addEvento($latitudine, $longitudine, $timestamp, $idFurgone, $idAttrezzo, $db_conn);
                 if ($evento){
-                    return "{result:'OK'}";
+                    echo "OK";
+                    return "OK";
                 }else{
-                    return "{result:'error'}";
+                    echo "error";
+                    return "error";
                 }
         }
     }catch(Exception $e){
