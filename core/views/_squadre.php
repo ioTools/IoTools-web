@@ -70,7 +70,8 @@
     '</select>'+
     '</div><br>'+
     '<button class="style-button-red" name="salva" id="salva" type="submit">SAVE</button>'+
-    '<button class="style-button-red" name="annulla" id="annulla" type="reset" onclick=newSquadraModal.close()>BACK</button>';
+    '<button class="style-button-red" name="annulla" id="annulla" type="reset" onclick=newSquadraModal.close()>BACK</button>'+
+    '</form>';
     newSquadraModal.open();
   }
   var newSquadraModal = new tingle.modal({

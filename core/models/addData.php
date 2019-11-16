@@ -51,4 +51,17 @@
     }
     return true;
   }
+  function addOperai($nome, $cognome, $cellulare, $squadra, $db_conn){
+    $sql = "INSERT INTO t_lavoratore (Nome, Cognome, Cellulare, FK_Squadra) 
+            VALUES ('$nome', '$cognome', '$cellulare', '$squadra')";
+    try {
+      $addOperai = mysqli_query($db_conn, $sql);
+      if (!$addOperai){
+        return false;
+      }
+    } catch (Exception $e) {
+      return false;
+    }
+    return true;
+  }
 ?>

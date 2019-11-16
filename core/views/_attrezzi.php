@@ -52,7 +52,8 @@
     '<input class="mdl-textfield__input" type="text" id="attrezzatura" name="attrezzatura" style="outline:none" required="">'+
     '</div><br>'+
     '<button class="style-button-red" name="salva" id="salva" type="submit">SAVE</button>'+
-    '<button class="style-button-red" name="annulla" id="annulla" type="reset" onclick=newAttrezzaturaModal.close()>BACK</button>';
+    '<button class="style-button-red" name="annulla" id="annulla" type="reset" onclick=newAttrezzaturaModal.close()>BACK</button>'+
+    '</form>';
     newAttrezzaturaModal.open();
   }
   var newAttrezzaturaModal = new tingle.modal({

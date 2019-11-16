@@ -21,6 +21,9 @@
         case 'squadra':
           deleteSquadra($id, $db_conn);
           break;
+        case 'operaio':
+          deleteOperaio($id, $db_conn);
+          break;
         default:
           redirect('../../dashboard.php?redirect=home');        
           break;
@@ -54,5 +57,12 @@ function deleteAttrezzatura($id, $db_conn){
     }
     redirect('../../dashboard.php?redirect=squadre');
   }
-
+  function deleteOperaio($id, $db_conn){
+    $sql = "DELETE FROM t_lavoratore WHERE ID='$id'";
+    $deleteQuery = mysqli_query($db_conn, $sql);
+    if ($deleteQuery == null){
+      die("Errore nella cancellazione del lavoratore: contattare l'amministratore");
+    }
+    redirect('../../dashboard.php?redirect=operai');
+  }
  ?>

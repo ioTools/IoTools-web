@@ -11,6 +11,7 @@
         <th class="style-td">Name</th>
         <th class="style-td">Surname</th>
         <th class="style-td">Phone number</th>
+        <th class="style-td">Squad</th>
         <th></th>
       </tr>
     </thead>
@@ -31,7 +32,7 @@
               <td class="style-td">'.$nome.'</td>
               <td class="style-td">'.$cognome.'</td>
               <td class="style-td">'.$cellulare.'</td>
-              <td class="style-td">'.$idSquadra.'</td>
+              <td class="style-td">'.getSquad($idSquadra, $db_conn)[0][1].'</td>
               <td class="style-td"><a onclick="alertDeleteWorkers('.$id.')" style="color:red;cursor:pointer;text-decoration:underline">Delete</a></td>
               </tr>';
         }
@@ -54,19 +55,37 @@
     '<div class="mdl-card mdl-shadow--8dp" style="border-radius:20px;padding:20px;width:85%;min-height:200px;display:inline-block;margin:20px;text-align:center">'+
     '<h3>Add new worker</h3>'+
     '<br>'+
-    '<form method="post" action="core/controllers/newWorker.php" enctype="multipart/form-data">' +
+    '<form method="post" action="core/controllers/newOperaio.php" enctype="multipart/form-data">' +
     '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
     '<p class="mdl-color-text--grey-900">Name</p>'+
     '<input class="mdl-textfield__input" type="text" id="nome" name="nome" style="outline:none" required="">'+
     '</div><br>'+
+    '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
     '<p class="mdl-color-text--grey-900">Surname</p>'+
     '<input class="mdl-textfield__input" type="text" id="cognome" name="cognome" style="outline:none" required="">'+
     '</div><br>'+
+    '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
     '<p class="mdl-color-text--grey-900">Phone</p>'+
-    '<input class="mdl-textfield__input" type="text" id="cellulare" name="cellulare" style="outline:none" required="">'+
+    '<input class="mdl-textfield__input" type="number" id="cellulare" name="cellulare" style="outline:none" required="">'+
+    '</div><br>'+
+    '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
+    '<select class="mdl-textfield__input" id="squadra" name="squadra" required="" style="outline:none">'+
+    <?php
+      $squadra =getSquad(null, $db_conn);
+      $selected = '';
+      for ($i=0;$i<count($squadra);$i++){
+        if ($i == count($squadra) -1){
+          $selected = 'selected';
+        }
+        echo "'".'<option value="'.$squadra[$i][0].'" '.$selected.'>'.$squadra[$i][1]."</option>'+";
+        $selected = '';
+      }
+     ?>
+    '</select>'+
     '</div><br>'+
     '<button class="style-button-red" name="salva" id="salva" type="submit">SAVE</button>'+
-    '<button class="style-button-red" name="annulla" id="annulla" type="reset" onclick=newOperaiModal.close()>BACK</button>';
+    '<button class="style-button-red" name="annulla" id="annulla" type="reset" onclick=newFurgoniModal.close()>BACK</button>'+
+    '</form>';
     newOperaiModal.open();
   }
   var newOperaiModal = new tingle.modal({

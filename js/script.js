@@ -134,3 +134,30 @@ function alertDeleteSquadra(id){
     }
   });
 }
+
+function alertDeleteWorkers(id){
+  swal(
+    {
+      title: "Vuoi continuare?",
+      text: "Il lavoratore selezionato verrà eliminato",
+      icon: "error",
+      buttons: {
+        cancel: {
+          text: "Annulla",
+          visible: true,
+        },
+        button: {
+          text: "Continua",
+          visible: true,
+        }
+      }
+    }
+  ).then(Elimina => {
+    if (Elimina){
+      swal.close();
+      location.href='core/models/deleteData.php?data=operaio&id='+id;
+    }else{
+      swal.close();
+    }
+  });
+}

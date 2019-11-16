@@ -52,7 +52,8 @@
     '<input class="mdl-textfield__input" type="text" id="furgoni" name="furgoni" style="outline:none" required="">'+
     '</div><br>'+
     '<button class="style-button-red" name="salva" id="salva" type="submit">SAVE</button>'+
-    '<button class="style-button-red" name="annulla" id="annulla" type="reset" onclick=newFurgoniModal.close()>BACK</button>';
+    '<button class="style-button-red" name="annulla" id="annulla" type="reset" onclick=newFurgoniModal.close()>BACK</button>'+
+    '</form>';
     newFurgoniModal.open();
   }
   var newFurgoniModal = new tingle.modal({

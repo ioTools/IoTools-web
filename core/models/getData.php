@@ -27,7 +27,7 @@
         $workers = array();
         $sql = "";
         if ($ID == null){
-            $sql = "SELECT * FROM t_lavoratore";
+            $sql = "SELECT * FROM t_lavoratore ORDER BY FK_Squadra";
         }else{
             $sql = "SELECT * FROM t_lavoratore WHERE (ID='$ID')";
         }
