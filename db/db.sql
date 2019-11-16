@@ -3,14 +3,24 @@ CREATE DATABASE IF NOT EXISTS my_iotools DEFAULT CHARACTER SET=utf8 COLLATE=utf8
 USE my_iotools;
 
 CREATE TABLE t_furgoni (
-  ID 		         BIGINT				NOT NULL 	AUTO_INCREMENT,
-  Furgone            VARCHAR(50),
+  ID 		          BIGINT				NOT NULL 	AUTO_INCREMENT,
+  Furgone          VARCHAR(50),
+  Password         VARCHAR(50),
   PRIMARY KEY(ID)
 ) ENGINE = InnoDB;
 
 CREATE TABLE t_attrezzi (
   ID 		         BIGINT				NOT NULL 	AUTO_INCREMENT,
   Attrezzo            VARCHAR(150),
+  PRIMARY KEY(ID)
+) ENGINE = InnoDB;
+
+CREATE TABLE t_amministratori (
+  ID 		         BIGINT				NOT NULL 	AUTO_INCREMENT,
+  Nome            VARCHAR(150),
+  Cognome         VARCHAR(150),
+  Email           VARCHAR(100) UNIQUE,
+  Password         VARCHAR(50),
   PRIMARY KEY(ID)
 ) ENGINE = InnoDB;
 

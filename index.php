@@ -30,17 +30,17 @@
         <span class="mdl-layout-title style-text-color-grey" style="font-weight:600">IoT</span><span class="mdl-layout-title style-text-color-grey">ools</span>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link style-text-color-grey" href="">Login as Admin</a>
-            <a class="mdl-navigation__link style-text-color-grey" href="">Login as Worker</a>
+            <a class="mdl-navigation__link style-text-color-grey" href="login.php?user=admin">Login as Admin</a>
+            <a class="mdl-navigation__link style-text-color-grey" href="login.php?user=vans">Login as Worker</a>
             <a class="mdl-navigation__link style-text-color-grey" href="">About</a>
         </nav>
         </div>
     </header>
     <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Title</span>
+        <span class="mdl-layout-title">IoTools</span>
         <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Login as Admin</a>
-        <a class="mdl-navigation__link" href="">Login as Worker</a>
+        <a class="mdl-navigation__link" href="login.php?user=admin">Login as Admin</a>
+        <a class="mdl-navigation__link" href="login.php?user=vans">Login as Worker</a>
         <a class="mdl-navigation__link" href="">About</a>
         </nav>
     </div>
@@ -53,13 +53,13 @@
                 <div class="mdl-cell mdl-cell--7-col" 
                     style="text-align:center">
                 <br><br><br><br>
-                <h2 class="style-text-color-grey">Reinvent <span style="font-weight:600">tools</span> tracking through <span style="font-weight:600">IoT</span>...</h2>
+                <h2 class="style-text-color-grey">Reinventing <span style="font-weight:600">tools</span> tracking through <span style="font-weight:600">IoT</span>...</h2>
                 <br><br>
                 <?php
                     if($logged){
                     echo '<button class="style-button-red" onclick="location.href='."'login.php'".'">ENTRA</button>';
                     }else {
-                    echo '<button class="style-button-red" onclick="location.href='."'login.php'".'">INIZIA SUBITO!</button>';
+                    echo '<button class="style-button-red" onclick="location.href='."'login.php?user=admin'".'">INIZIA SUBITO!</button>';
                     }
                 ?>
                 <button class="style-button-white" onclick="location.href='#scopri'">SCOPRI DI PIÙ</button>
