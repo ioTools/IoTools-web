@@ -49,31 +49,34 @@
             <div id="particles-js" width="100%" height="100%" style="width:100%;height:100%">
             </div>
             <section id="home">
-            <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--7-col" 
-                    style="text-align:center">
-                <br><br><br><br>
-                <h2 class="style-text-color-grey">Reinventing <span style="font-weight:600">tools</span> tracking through <span style="font-weight:600">IoT</span>...</h2>
-                <br><br>
-                <?php
-                    if($logged){
-                    echo '<button class="style-button-red" onclick="location.href='."'login.php'".'">ENTRA</button>';
-                    }else {
-                    echo '<button class="style-button-red" onclick="location.href='."'login.php?user=admin'".'">INIZIA SUBITO!</button>';
-                    }
-                ?>
-                <button class="style-button-white" onclick="location.href='#scopri'">SCOPRI DI PIÙ</button>
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--7-col" 
+                        style="text-align:center">
+                    <br><br><br><br>
+                    <h2 class="style-text-color-grey">Reinventing <span style="font-weight:600">tools</span> tracking through <span style="font-weight:600">IoT</span>...</h2>
+                    <br><br>
+                    <?php
+                        if($logged){
+                        echo '<button class="style-button-red" onclick="location.href='."'login.php'".'">ENTER</button>';
+                        }else {
+                        echo '<button class="style-button-red" onclick="location.href='."'login.php?user=admin'".'">START NOW!</button>';
+                        }
+                    ?>
+                    <button class="style-button-white" onclick="location.href='#explore'">MORE</button>
+                    </div>
+                    <div class="mdl-cell mdl-cell--5-col mdl-cell--hide-phone" style="background:url('img/abstract.svg');background-repeat:no-repeat;background-size:contain;text-align:center">
+                    <img src="imgs/iot.png" 
+                        class="style-home-image"
+                        onclick="openImage('iot.png')" 
+                        style="width:80%"></img>
+                    </div>
                 </div>
-                <div class="mdl-cell mdl-cell--5-col mdl-cell--hide-phone" style="background:url('img/abstract.svg');background-repeat:no-repeat;background-size:contain;text-align:center">
-                <img src="imgs/iot.png" 
-                    class="style-home-image"
-                    onclick="openImage('iot.png')" 
-                    style="width:80%"></img>
+                <div class="style-arrow animated bounce">
+                    <i class="material-icons style-arrow-icon">keyboard_arrow_down</i>
                 </div>
-            </div>
-            <div class="style-arrow animated bounce">
-                <i class="material-icons style-arrow-icon">keyboard_arrow_down</i>
-            </div>
+            </section>
+            <section id="explore">
+                
             </section>
         </div>
     </main>

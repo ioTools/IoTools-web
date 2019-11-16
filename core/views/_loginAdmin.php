@@ -43,9 +43,9 @@
 
         </div>
         <div class="mdl-cell mdl-cell--5-col mdl-cell--hide-phone" style="background:url('imgs/abstract.svg');background-repeat:no-repeat;background-size:contain;text-align:center">
-        <img src="imgs/iot.png" 
+        <img src="imgs/admin.png" 
             class="style-home-image"
-            onclick="openImage('iot.png')" 
+            onclick="openImage('admin.png')" 
             style="width:90%"></img>
         </div>
     </div>
@@ -72,8 +72,9 @@
       flatAlert('Password errata', '', 'error', 'login.php?user=admin');
       </script>";
     }else{
-      $_SESSION['ID'] = $caserma[0][3];
+      $_SESSION['ID'] = $caserma[0][0];
       $_SESSION['Email'] = $caserma[0][3];
+      $_SESSION['user'] = "admin";
       echo "
       <script>
       flatAlert('Accesso eseguito con successo', '', 'success', 'core/log.php');

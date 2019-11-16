@@ -18,5 +18,17 @@
   }
   fwrite($log, $line);
   fclose($log);
+  $user = $_SESSION['user'];
+  if (isset($user)){
+    if ($user == "admin"){
+
+    }else if ($user == "vans"){
+
+    }else{
+      redirect("logout.php");
+    }
+  }else{
+    redirect("logout.php");
+  }
   redirect("../index.php");
 ?>
