@@ -29,7 +29,7 @@
               <td class="style-td">'.getTools($idAttrezzo, $db_conn)[0][1].'</td>
               <td class="style-td">'.getVans($idFurgone, $db_conn)[0][1].'</td>
               <td class="style-td">'.$time.'</td>
-              <td class="style-td"><a href="">Position</a></td>
+              <td class="style-td"><a href="" onclick="alert('."'Position: ".$lat.", ".$long."'".')">Position</a></td>
               <td class="style-td"><a onclick="alertDeleteWorkers('.$id.')" style="color:red;cursor:pointer;text-decoration:underline">Delete</a></td>
               </tr>';
         }

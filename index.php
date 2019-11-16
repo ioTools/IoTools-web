@@ -84,10 +84,10 @@
                     <button class="style-button-white" onclick="location.href='#explore'">MORE</button>
                     </div>
                     <div class="mdl-cell mdl-cell--5-col mdl-cell--hide-phone" style="background:url('img/abstract.svg');background-repeat:no-repeat;background-size:contain;text-align:center">
-                    <img src="imgs/iot.png" 
+                    <img src="imgs/tool.png" 
                         class="style-home-image"
-                        onclick="openImage('iot.png')" 
-                        style="width:80%"></img>
+                        onclick="openImage('tool.png')" 
+                        style="width:80%;margin-top:30%"></img>
                     </div>
                 </div>
                 <div class="style-arrow animated bounce">

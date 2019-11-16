@@ -95,7 +95,7 @@
     }
     function getUltimiEventi($idFurgone, $db_conn){
         $evento = array();
-        $sql = "SELECT * FROM t_evento WHERE Tempo >= DATE_SUB(NOW(),INTERVAL 1 HOUR)";
+        $sql = "SELECT * FROM t_evento WHERE Tempo >= DATE_SUB(NOW(),INTERVAL 1 HOUR) and FK_Furgone='$idFurgone')";
 
         $ris = mysqli_query($db_conn, $sql);
         if ($ris == false){

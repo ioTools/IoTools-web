@@ -25,9 +25,9 @@
     }
     return true;
   }
-  function addFurgoni($nome, $db_conn){
-    $sql = "INSERT INTO t_furgoni (Furgone) 
-            VALUES ('$nome')";
+  function addFurgoni($nome, $password, $db_conn){
+    $sql = "INSERT INTO t_furgoni (Furgone, Password) 
+            VALUES ('$nome', '$password')";
     try {
       $addFurgone = mysqli_query($db_conn, $sql);
       if (!$addFurgone){

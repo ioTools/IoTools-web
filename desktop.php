@@ -58,6 +58,7 @@
                         echo "<div class='mdl-cell mdl-cell--4-col'>";
                         echo "<div id='".$tools[$i][0]."' class='mdl-card mdl-shadow--2dp' style='text-align:center;color:white;background-color:#c62828'>";
                         echo "<h4>".$tools[$i][1]."</h4>";
+                        echo "<h6>".$tools[$i][0]."</h6>";
                         echo "</div>";
                         echo "</div>";
                     }

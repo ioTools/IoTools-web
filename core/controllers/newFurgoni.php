@@ -19,7 +19,9 @@
       if (!$error_message) {
         if (isset($_POST['salva'])){
           $furgoni = text_filter($_POST["furgoni"]);
-          $addFurgoni = addFurgoni($furgoni, $db_conn);
+          // la password è il nome del furgone (temporaneamente)
+          $password = md5($furgoni);
+          $addFurgoni = addFurgoni($furgoni, $password, $db_conn);
           if ($addFurgoni){
             echo "
             <script>
