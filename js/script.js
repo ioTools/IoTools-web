@@ -15,3 +15,41 @@ function openImage(name){
   });
   modal.open();
 }
+
+function flatAlert(titolo, testo, icona, url, button=false){
+  if (button){
+    swal({
+      title: titolo,
+      text: testo,
+      icon: icona,
+      buttons: {
+        cancel: {
+          text: "Annulla",
+          visible: true,
+        },
+        button: {
+          text: "Continua",
+          visible: true,
+        }
+      }
+    }).then(azione => {
+      if (azione){
+        location.href = url;
+      }else{
+        swal.close();
+      }
+    });
+  }else{
+    swal({
+      title: titolo,
+      text: testo,
+      icon: icona,
+    }).then(azione => {
+      if (azione){
+        location.href = url;
+      }else{
+        swal.close();
+      }
+    });
+  } 
+}

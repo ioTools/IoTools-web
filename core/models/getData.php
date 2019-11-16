@@ -7,8 +7,8 @@
         }else{
             $sql = "SELECT * FROM t_amministratori WHERE (ID='$ID')";
         }
-        $risultato = mysqli_query($db_conn, $sql);
-        if ($risultato == false){
+        $ris = mysqli_query($db_conn, $sql);
+        if ($ris == false){
             die("error");
         }else{
             if ($ID == null){
@@ -18,6 +18,7 @@
             }
         }
         
+        return $admin;        
     }
 
 
