@@ -17,8 +17,13 @@
             isset($longitudine)){
                 $vans = getVans($idFurgone, $db_conn);
                 $tools = getTools($idAttrezzo, $db_conn);
-                if (empty($vans) or empty($idAttrezzo)){
-                    return;
+                if (empty($vans)){
+                    echo "Error Vans empty";
+                    return "Vans empty";
+                }
+                if(empty($tools)){
+                    echo "Error Empty tools";
+                    return "Empty tools";
                 }
                 $idFurgone = intval($idFurgone);
                 $idAttrezzo = intval($idAttrezzo);
