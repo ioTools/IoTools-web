@@ -19,7 +19,8 @@
       if (!$error_message) {
         if (isset($_POST['salva'])){
           $attrezzatura = text_filter($_POST["attrezzatura"]);
-          $addAttrezzatura = addAttrezzatura($attrezzatura, $db_conn);
+          $speciale = text_filter($_POST["speciale"]);
+          $addAttrezzatura = addAttrezzatura($attrezzatura,$speciale, $db_conn);
           if ($addAttrezzatura){
             echo "
             <script>

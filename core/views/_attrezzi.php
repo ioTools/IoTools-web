@@ -9,6 +9,7 @@
       <tr style="text-align:left">
         <th class="style-td">ID</th>
         <th class="style-td">Tool</th>
+        <th class="style-td">Special Equipment</th>
         <th></th>
       </tr>
     </thead>
@@ -21,9 +22,12 @@
           $checkingExists = true;
           $id = $attr[$i][0];
           $nome = $attr[$i][1];
+          $speciale = $attr[$i][2];
+          $speciale = ($speciale) ? "SI": "NO";
           echo '<tr>
               <td class="style-td">'.$id.'</td>
               <td class="style-td">'.$nome.'</td>
+              <td class="style-td">'.$speciale.'</td>
               <td class="style-td"><a onclick="alertDeleteAttrezzatura('.$id.')" style="color:red;cursor:pointer;text-decoration:underline">Delete</a></td>
               </tr>';
         }
@@ -50,6 +54,12 @@
     '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
     '<p class="mdl-color-text--grey-900">Tools</p>'+
     '<input class="mdl-textfield__input" type="text" id="attrezzatura" name="attrezzatura" style="outline:none" required="">'+
+    '</div><br>'+
+    '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
+    '<select class="mdl-textfield__input" id="speciale" name="speciale" required="" style="outline:none">'+
+    '<option value="1">SI</option>'+
+    '<option value="0">NO</option>'+
+    '</select>'+
     '</div><br>'+
     '<button class="style-button-red" name="salva" id="salva" type="submit">SAVE</button>'+
     '<button class="style-button-red" name="annulla" id="annulla" type="reset" onclick=newAttrezzaturaModal.close()>BACK</button>'+

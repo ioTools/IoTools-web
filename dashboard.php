@@ -23,7 +23,7 @@
                         return;
                     }
                     if (!$_SESSION['_dashboardLayout']){
-                        $_SESSION['_dashboardLayout'] = 'app/views/_home.php';
+                        $_SESSION['_dashboardLayout'] = 'core/views/_home.php';
                     }
                     if (isset($_GET['redirect'])){
                         // se il get è impostato allora includo nella dashboard il percorso del file selezionato
@@ -45,10 +45,10 @@
                             $_SESSION['_dashboardLayout'] = 'core/views/_home.php';
                             break;
                            case 'impostazioni':
-                            $_SESSION['_dashboardLayout'] = 'app/views/_impostazioni.php';
+                            $_SESSION['_dashboardLayout'] = 'core/views/_impostazioni.php';
                             break;
                           default:
-                            $_SESSION['_dashboardLayout'] = 'app/views/_home.php';
+                            $_SESSION['_dashboardLayout'] = 'core/views/_home.php';
                             break;
                         }
                       }
@@ -64,19 +64,19 @@
                 mdl-layout--fixed-header">
         <header class="mdl-layout__header style-header">
             <div class="mdl-layout__header-row">
-            <div class="mdl-layout-spacer">
-            </div>
-            <button id="nav-menu"
-                  class="mdl-button mdl-js-button mdl-button--icon">
-            <i class="material-icons style-text-red">settings</i>
-          </button>
-            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-                for="nav-menu"
-                style="border-radius:20px">
-                <li class="mdl-menu__item" onclick="location.href='index.php#home'">Home</li>
-                <li class="mdl-menu__item" onclick="location.href='?redirect=impostazioni'">Settings</li>
-                <li class="mdl-menu__item" onclick="location.href='core/logout.php'">Logout</li>
-            </ul>
+              <div class="mdl-layout-spacer">
+              </div>
+              <button id="nav-menu"
+                    class="mdl-button mdl-js-button mdl-button--icon">
+              <i class="material-icons style-text-red">settings</i>
+              </button>
+              <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                  for="nav-menu"
+                  style="border-radius:20px">
+                  <li class="mdl-menu__item" onclick="location.href='index.php#home'">Home</li>
+                  <li class="mdl-menu__item" onclick="location.href='?redirect=impostazioni'">Settings</li>
+                  <li class="mdl-menu__item" onclick="location.href='core/logout.php'">Logout</li>
+              </ul>
             </div>
         </header>
         <div class="mdl-layout__drawer">
@@ -87,7 +87,7 @@
             <a class="mdl-navigation__link" href="?redirect=furgoni">Vans</a>
             <a class="mdl-navigation__link" href="?redirect=squadre">Squads</a>
             <a class="mdl-navigation__link" href="?redirect=attrezzi">Tools</a>
-            <a class="mdl-navigation__link" href="core/logoutphp">Logout</a>
+            <a class="mdl-navigation__link" href="core/logout.php">Logout</a>
             <hr>
             <span>Logged in as <?php echo $_SESSION['Email']?></span>
             </nav>

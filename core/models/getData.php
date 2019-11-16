@@ -85,10 +85,10 @@
         $i=0;
         while($risultato = mysqli_fetch_array ($ris, MYSQLI_ASSOC)){
             if ($ID == null){
-                $tools["$i"] = array($risultato['ID'], $risultato['Attrezzo']);
+                $tools["$i"] = array($risultato['ID'], $risultato['Attrezzo'], $risultato['Speciale']);
                 $i++;
             }else{
-                $tools[0] = array($risultato['ID'], $risultato['Attrezzo']);
+                $tools[0] = array($risultato['ID'], $risultato['Attrezzo'], $risultato['Speciale']);
             }
         }
         return $tools;        

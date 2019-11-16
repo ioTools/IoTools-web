@@ -12,9 +12,9 @@
     }
     return true;
   }
-  function addAttrezzatura($nome, $db_conn){
-    $sql = "INSERT INTO t_attrezzi (Attrezzo) 
-            VALUES ('$nome')";
+  function addAttrezzatura($nome, $speciale, $db_conn){
+    $sql = "INSERT INTO t_attrezzi (Attrezzo, Speciale) 
+            VALUES ('$nome', '$speciale')";
     try {
       $addAttrezzatura = mysqli_query($db_conn, $sql);
       if (!$addAttrezzatura){
