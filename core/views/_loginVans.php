@@ -73,6 +73,7 @@
       $_SESSION['ID'] = $van[0][0];
       $_SESSION['Furgone'] = $van[0][1];
       $_SESSION['user'] = "vans";
+      $_SESSION['logged'] = true;
       echo "
       <script>
       flatAlert('Accesso eseguito con successo', '', 'success', 'core/log.php');

@@ -30,5 +30,5 @@
   }else{
     redirect("logout.php");
   }
-  redirect("../index.php");
+  redirect("../dashboard.php");
 ?>

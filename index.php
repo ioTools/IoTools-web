@@ -16,7 +16,12 @@
             include "core/models/getData.php";
             $logged = false;
             if (!$error_message) {
-                
+                $logged = $_SESSION['logged'];
+                if ($logged){
+                    if (!isset($_SESSION['ID']) or !isset($_SESSION['user'])){
+                        redirect('core/logout.php');
+                    }
+                }
             }
         }catch(Exception $e){
 
@@ -30,8 +35,15 @@
         <span class="mdl-layout-title style-text-color-grey" style="font-weight:600">IoT</span><span class="mdl-layout-title style-text-color-grey">ools</span>
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link style-text-color-grey" href="login.php?user=admin">Login as Admin</a>
-            <a class="mdl-navigation__link style-text-color-grey" href="login.php?user=vans">Login as Worker</a>
+            <?php
+                if($logged){
+                    echo '<a class="mdl-navigation__link style-text-color-grey" href="core/logout.php">Logout</a>';
+                }else{
+                    echo '<a class="mdl-navigation__link style-text-color-grey" href="login.php?user=admin">Login as Admin</a>';
+                    echo '<a class="mdl-navigation__link style-text-color-grey" href="login.php?user=vans">Login as Worker</a>';
+                    
+                }
+            ?>
             <a class="mdl-navigation__link style-text-color-grey" href="">About</a>
         </nav>
         </div>
@@ -39,9 +51,16 @@
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">IoTools</span>
         <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="login.php?user=admin">Login as Admin</a>
-        <a class="mdl-navigation__link" href="login.php?user=vans">Login as Worker</a>
-        <a class="mdl-navigation__link" href="">About</a>
+        <?php
+                if($logged){
+                    echo '<a class="mdl-navigation__link style-text-color-grey" href="core/logout.php">Logout</a>';
+                }else{
+                    echo '<a class="mdl-navigation__link style-text-color-grey" href="login.php?user=admin">Login as Admin</a>';
+                    echo '<a class="mdl-navigation__link style-text-color-grey" href="login.php?user=vans">Login as Worker</a>';
+                    
+                }
+            ?>
+            <a class="mdl-navigation__link style-text-color-grey" href="">About</a>
         </nav>
     </div>
     <main class="mdl-layout__content">
@@ -57,7 +76,7 @@
                     <br><br>
                     <?php
                         if($logged){
-                        echo '<button class="style-button-red" onclick="location.href='."'login.php'".'">ENTER</button>';
+                        echo '<button class="style-button-red" onclick="location.href='."'dashboard.php'".'">ENTER</button>';
                         }else {
                         echo '<button class="style-button-red" onclick="location.href='."'login.php?user=admin'".'">START NOW!</button>';
                         }

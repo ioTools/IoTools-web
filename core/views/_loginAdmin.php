@@ -72,9 +72,10 @@
       flatAlert('Password errata', '', 'error', 'login.php?user=admin');
       </script>";
     }else{
-      $_SESSION['ID'] = $caserma[0][0];
-      $_SESSION['Email'] = $caserma[0][3];
+      $_SESSION['ID'] = $admin[0][0];
+      $_SESSION['Email'] = $admin[0][3];
       $_SESSION['user'] = "admin";
+      $_SESSION['logged'] = true;
       echo "
       <script>
       flatAlert('Accesso eseguito con successo', '', 'success', 'core/log.php');
