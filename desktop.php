@@ -49,27 +49,27 @@
     <main class="mdl-layout__content">
         <div class="page-content">
             <div style="text-align:center">
-                <h2 class="style-text-color-grey">Toolboxes Status</h2>
+                <h2 class="style-text-color-grey">Toolboxes Status <?php echo getVans($_SESSION['ID'], $db_conn)[0][1]?> </h2>
             </div>
             <div class="mdl-grid">
                 <?php
                     $tools = getTools(null, $db_conn);
                     for ($i=0; $i < count($tools); $i++){
                         echo "<div class='mdl-cell mdl-cell--4-col'>";
-                        echo "<div class='mdl-card mdl-shadow--2dp' style='text-align:center'>";
+                        echo "<div id='".$tools[$i][0]."' class='mdl-card mdl-shadow--2dp' style='text-align:center;color:white;background-color:#c62828'>";
                         echo "<h4>".$tools[$i][1]."</h4>";
                         echo "</div>";
                         echo "</div>";
                     }
-                    
+                    $eventi = getUltimiEventi($_SESSION['ID'], $db_conn);
+                    $devices = array();
+                    for ($i=0; $i < count ($eventi); $i++){
+                        $devices[$i] = $eventi[$i][2];
+                        echo $eventi[$i][1];
+                        echo '<script>document.getElementById("'.$eventi[$i][1].'").style.backgroundColor="#388E3C"</script>';
+                    }
+
                 ?>
-                
-                <div class="mdl-cell mdl-cell--4-col">
-
-                </div>
-                <div class="mdl-cell mdl-cell--4-col">
-
-                </div>
             </div>
         </div>
     </main>

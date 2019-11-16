@@ -93,7 +93,21 @@
         }
         return $tools;        
     }
-    
+    function getUltimiEventi($idFurgone, $db_conn){
+        $evento = array();
+        $sql = "SELECT * FROM t_evento WHERE Tempo >= DATE_SUB(NOW(),INTERVAL 1 HOUR)";
+
+        $ris = mysqli_query($db_conn, $sql);
+        if ($ris == false){
+            die("error");
+        }
+        $i=0;
+        while($risultato = mysqli_fetch_array ($ris, MYSQLI_ASSOC)){
+            $evento["$i"] = array($risultato['ID'], $risultato['FK_Attrezzo'], $risultato['Tempo'], $risultato['FK_Furgone'], $risultato['Latitudine'], $risultato['Longitudine']);
+            $i++;
+         }
+        return $evento;  
+    }
     function getEvento($ID, $db_conn){
         $evento = array();
         $sql = "";
