@@ -62,3 +62,7 @@ CREATE TABLE t_evento (
     ON DELETE CASCADE
     ON UPDATE CASCADE
 ) ENGINE = InnoDB;
+
+
+INSERT INTO `my_iotools`.`t_amministratori` (`ID`, `Nome`, `Cognome`, `Email`, `Password`) 
+VALUES (NULL, 'Giuseppe', 'Verdi', 'verdi@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99');

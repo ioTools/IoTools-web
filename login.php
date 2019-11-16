@@ -45,7 +45,7 @@
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation mdl-layout--large-screen-only">
             <a class="mdl-navigation__link style-text-color-grey" href="index.php">Home</a>
-            <a class="mdl-navigation__link style-text-color-grey" href="">Login as Worker</a>
+            <a class="mdl-navigation__link style-text-color-grey" href="login.php?user=vans">Login as Worker</a>
             <a class="mdl-navigation__link style-text-color-grey" href="">About</a>
         </nav>
         </div>
@@ -54,7 +54,7 @@
         <span class="mdl-layout-title">IoTools</span>
         <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="index.php">Home</a>
-        <a class="mdl-navigation__link" href="">Login as Worker</a>
+        <a class="mdl-navigation__link" href="login.php?user=vans">Login as Worker</a>
         <a class="mdl-navigation__link" href="">About</a>
         </nav>
     </div>
