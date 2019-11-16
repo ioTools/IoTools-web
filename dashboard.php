@@ -88,6 +88,8 @@
             <a class="mdl-navigation__link" href="?redirect=squadre">Squads</a>
             <a class="mdl-navigation__link" href="?redirect=attrezzi">Tools</a>
             <a class="mdl-navigation__link" href="core/logoutphp">Logout</a>
+            <hr>
+            <span>Logged in as <?php echo $_SESSION['Email']?></span>
             </nav>
         </div>
         <main class="mdl-layout__content">

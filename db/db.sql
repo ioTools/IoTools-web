@@ -38,7 +38,7 @@ CREATE TABLE t_lavoratore (
   ID 		         BIGINT				NOT NULL 	AUTO_INCREMENT,
   Nome               VARCHAR(150),
   Cognome            VARCHAR(150),
-  Cellulare          VARCHAR(20),
+  Cellulare          VARCHAR(20) UNIQUE,
   FK_Squadra          BIGINT,
   PRIMARY KEY(ID),
   FOREIGN KEY(FK_Squadra)    REFERENCES t_squadre(ID)

@@ -25,4 +25,30 @@
     }
     return true;
   }
+  function addFurgoni($nome, $db_conn){
+    $sql = "INSERT INTO t_furgoni (Furgone) 
+            VALUES ('$nome')";
+    try {
+      $addFurgone = mysqli_query($db_conn, $sql);
+      if (!$addFurgone){
+        return false;
+      }
+    } catch (Exception $e) {
+      return false;
+    }
+    return true;
+  }
+  function addSquadra($squadra, $idFurgone, $db_conn){
+    $sql = "INSERT INTO t_squadre (Squadra, FK_Furgone) 
+            VALUES ('$squadra', '$idFurgone')";
+    try {
+      $addSquadra = mysqli_query($db_conn, $sql);
+      if (!$addSquadra){
+        return false;
+      }
+    } catch (Exception $e) {
+      return false;
+    }
+    return true;
+  }
 ?>

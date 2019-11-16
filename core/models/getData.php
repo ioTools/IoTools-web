@@ -23,7 +23,29 @@
         }
         return $admin;        
     }
-
+    function getWorkers($ID, $db_conn){
+        $workers = array();
+        $sql = "";
+        if ($ID == null){
+            $sql = "SELECT * FROM t_lavoratore";
+        }else{
+            $sql = "SELECT * FROM t_lavoratore WHERE (ID='$ID')";
+        }
+        $ris = mysqli_query($db_conn, $sql);
+        if ($ris == false){
+            die("error");
+        }
+        $i=0;
+        while($risultato = mysqli_fetch_array ($ris, MYSQLI_ASSOC)){
+            if ($ID == null){
+                $workers["$i"] = array($risultato['ID'], $risultato['Nome'], $risultato['Cognome'], $risultato['Cellulare'], $risultato['FK_Squadra']);
+                $i++;
+            }else{
+                $workers[0] = array($risultato['ID'], $risultato['Nome'], $risultato['Cognome'], $risultato['Cellulare'], $risultato['FK_Squadra']);
+            }
+        }
+        return $workers;        
+    }
     function getVans($ID, $db_conn){
         $vans = array();
         $sql = "";
@@ -71,7 +93,29 @@
         }
         return $tools;        
     }
-
+    function getSquad($ID, $db_conn){
+        $squads = array();
+        $sql = "";
+        if ($ID == null){
+            $sql = "SELECT * FROM t_squadre";
+        }else{
+            $sql = "SELECT * FROM t_squadre WHERE (ID='$ID')";
+        }
+        $ris = mysqli_query($db_conn, $sql);
+        if ($ris == false){
+            die("error");
+        }
+        $i=0;
+        while($risultato = mysqli_fetch_array ($ris, MYSQLI_ASSOC)){
+            if ($ID == null){
+                $squads["$i"] = array($risultato['ID'], $risultato['Squadra'], $risultato['FK_Furgone']);
+                $i++;
+            }else{
+                $squads[0] = array($risultato['ID'], $risultato['Squadra'], $risultato['FK_Furgone']);
+            }
+        }
+        return $squads;        
+    }
     function checkAdminPassword($id, $password, $db_conn){
         $selectQuery = "SELECT * FROM t_amministratori WHERE ID='$id' AND Password='$password'";
         $select = mysqli_query($db_conn, $selectQuery);
